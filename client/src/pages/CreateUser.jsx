@@ -80,6 +80,7 @@ export default function CreateUser() {
         <Textarea type='text' placeholder='address' required id='address' className='flex-1' onChange={(e) =>setFormData({ ...formData, address: e.target.value })}  />
         <TextInput type='text' placeholder='education' required id='education' className='flex-1' onChange={(e) =>setFormData({ ...formData, education: e.target.value })}  />
         <TextInput type='number' placeholder='Phone number' required id='pNumber' className='flex-1' onChange={(e) =>setFormData({ ...formData, pNumber: e.target.value })}  />
+        <TextInput type='number' placeholder='Age' required id='age' className='flex-1' onChange={(e) =>setFormData({ ...formData, age: e.target.value })}  />
         
         </div>
         <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3 ">

@@ -5,9 +5,13 @@ export const createPost = async (req, res, next) => {
   if (!req.user.isAdmin) {
     return next(errorHandler(403, 'You are not allowed to create a post'));
   }
-  if (!req.body.name || !req.body.address || !req.body.pNumber) {
+  if (!req.body.name || !req.body.address || !req.body.pNumber || !req.body.age) {
     return next(errorHandler(400, 'Please provide all required fields'));
   }
+  if (!/^\d{10}$/.test(req.body.pNumber)) {
+    return next(errorHandler(403,'Lasan Enter phone number of 10 digits'));
+  }
+  
   const slug = req.body.name
     .split(' ')
     .join('-')
@@ -38,6 +42,7 @@ export const getPosts = async (req, res, next) => {
     const query = {
       ...(req.query.userId && { userId: req.query.userId }),
       ...(req.query.pNumber && { pNumber: req.query.pNumber }),
+      ...(req.query.name && { name: req.query.name }),
       ...(req.query.slug && { slug: req.query.slug }),
       ...(req.query.postId && { _id: req.query.postId }),
       ...(req.query.searchTerm && {

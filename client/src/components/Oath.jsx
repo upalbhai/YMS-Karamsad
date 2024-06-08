@@ -38,7 +38,7 @@ export default function Oath() {
     }     
   return (
     <>
-    <Button className='dark:bg-custom-orange' onClick={handleGoogleClick} >
+    <Button className='dark:bg-custom-orange bg-custom-btn' onClick={handleGoogleClick} >
       <AiFillGoogleCircle className="w-6 h-6 mr-2 " /> Sign in with Google
     </Button>
     </>

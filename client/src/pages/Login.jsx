@@ -50,7 +50,6 @@ export default function Login() {
       <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
         <div className="flex-1">
           <Link to='/' className='self-center font-bold dark:text-white text-4xl'>YMS</Link>
-          <p className='text-sm mt-5'>This is a simple demo project showcasing my skills. You can create an account here.</p>
         </div>
         <div className="flex-1">
           <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
@@ -62,7 +61,7 @@ export default function Login() {
               <Label value='Your Password' />
               <TextInput onChange={handleChange} type='password' placeholder='Password' id='password' required />
             </div>
-            <Button className='bg-custom-btn' type='submit' disabled={loading}>
+            <Button className='bg-custom-orange dark:bg-teal-500' type='submit' disabled={loading}>
               {loading ? (
                 <>
                   <Spinner size='sm' />

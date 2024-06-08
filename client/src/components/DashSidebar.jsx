@@ -73,7 +73,7 @@ export default function DashSidebar() {
                   icon={HiDocumentText}
                   className={`p-2 rounded ${tab === 'posts'? 'bg-gray-400 hover:bg-gray-400' : 'hover:bg-gray-400'}`}
                 >
-                  Posts
+                  Registered Yuvaks
                 </Sidebar.Item>
               </Link>
               
@@ -87,16 +87,7 @@ export default function DashSidebar() {
                   Users
                 </Sidebar.Item>
               </Link>
-              <Link to='/dashboard?tab=comments'>
-                <Sidebar.Item
-                  as='div'
-                  active={tab === 'comments'}
-                  icon={HiAnnotation}
-                  className={`p-2 rounded ${tab === 'comments'? 'bg-gray-400 hover:bg-gray-400' : 'hover:bg-gray-400'}`}
-                >
-                  Comments
-                </Sidebar.Item>
-              </Link>
+              
             </>
           )}
           <Sidebar.Item

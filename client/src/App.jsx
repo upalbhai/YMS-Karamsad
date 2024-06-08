@@ -9,6 +9,10 @@ import Dashboard from './pages/Dashboard';
 import OnlyAdminPrivateRoute from './components/OnlyAdminPrivateRoute';
 import CreateUser from './pages/CreateUser';
 import UpdateUser from './pages/UpdateUser';
+import Home from './pages/Home';
+import Search from './pages/Search';
+import PostPage from './pages/Post';
+
 
 
 function App() {
@@ -20,6 +24,7 @@ function App() {
     <Header />
       <Routes>
         <Route path='/sign-in' element={<Login/>} />
+        <Route path='/' element={<Home/>}  />
         <Route path='/sign-up' element={<CreateAccount/>} />
 
 
@@ -30,7 +35,9 @@ function App() {
           <Route path='/create-post' element={<CreateUser />} />
           <Route path='/update-post/:postId' element={<UpdateUser />} />
         </Route>
-      </Routes>
+        <Route path='/search' element={<Search />} />
+        <Route path='/post/:postSlug' element={<PostPage />} />
+      </Routes> 
       
       <Toaster />
     </BrowserRouter>

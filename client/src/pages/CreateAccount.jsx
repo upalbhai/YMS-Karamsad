@@ -49,7 +49,7 @@ export default function CreateAccount() {
         <div className="flex-1">
         <Link to='/'className='self-center font-bold dark:text-white text-4xl' >
         YMS        </Link>
-        <p className='text-sm mt-5' >This is simple demo project which showcase my skill, you can able to creater a account</p>
+        <p className='text-sm mt-5' ></p>
         </div>
         <div className="flex-1">
           <form className='flex flex-col gap-4' onSubmit={handleSubmit} >
@@ -65,7 +65,7 @@ export default function CreateAccount() {
               <Label value='Your Password'/>
               <TextInput onChange={handleChange} type='password' placeholder='Password' id='password' />
             </div>
-            <Button className='bg-custom-orange' type='submit'>
+            <Button className='bg-custom-orange dark:bg-teal-500' type='submit'>
               {/* {
                 loading ? (
                   <>
@@ -81,7 +81,7 @@ export default function CreateAccount() {
           </form>
           <div className="flex gap-2 text-sm mt-5">
             <span>Have an Account?</span>
-            <Link to='/sign-in' className='font-bold text-custom-orange dark:text-teal-500'>Sign In</Link>
+            <Link to='/sign-in' className='font-bold d text-custom-orange dark:text-teal-500'>Sign In</Link>
           </div>
           {
             errorMessage && 

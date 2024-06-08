@@ -12,7 +12,6 @@ const postSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true,
-        unique:true,
     },
     image:{
         type:String,
@@ -25,6 +24,10 @@ const postSchema = new mongoose.Schema({
       },
     pNumber:{
         type:Number,
+    },
+    age:{
+        type:Number,
+        required:true,
     },
     education:{
         type:String,

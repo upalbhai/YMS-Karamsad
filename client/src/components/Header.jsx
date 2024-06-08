@@ -72,7 +72,7 @@ export default function Header() {
         </form>
         
         <div className="flex gap-2 md:order-2">
-            <Button className='w-12 h-10 hidden sm:inline ' color='gray' pill onClick={()=>dispatch(toogleTheme())} >
+            <Button className='w-12 h-10 ' color='gray' pill onClick={()=>dispatch(toogleTheme())} >
                 { theme==='light' ? <FaSun /> : <FaMoon />}
             </Button>
         {currentUser  ? (
@@ -106,8 +106,8 @@ export default function Header() {
             <Navbar.Toggle/>
         </div>
         <Navbar.Collapse className='text-lg '>
-            <Navbar.Link active={path==='/'} as={'div'} ><Link to='/' className='lg:text-lg '>Home</Link></Navbar.Link>
-            <Navbar.Link active={path==='/about'} as={'div'} ><Link to='/about' className='lg:text-lg'>About</Link></Navbar.Link>
+            {/* <Navbar.Link active={path==='/'} as={'div'} ><Link to='/' className='lg:text-lg '>Home</Link></Navbar.Link>
+            <Navbar.Link active={path==='/about'} as={'div'} ><Link to='/about' className='lg:text-lg'>About</Link></Navbar.Link> */}
             {/* <Navbar.Link active={path==='/projects'} as={'div'} ><Link to='/projects' className='lg:text-lg'>Projects</Link></Navbar.Link> */}
         </Navbar.Collapse>
     </Navbar>
