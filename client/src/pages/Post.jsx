@@ -73,19 +73,19 @@ export default function PostPage() {
         className='mt-10 p-3 max-h-[600px] w-full object-cover'
       />
       <div className='flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs'>
-        <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
+        <span  ><span className='font-bold text-custom-orange' >Created At:-</span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
       </div>
       <div className='p-3 max-w-2xl text-justify mx-auto w-full post-content'>
-        Address:-{post && post.address}
+        <span className='font-bold text-custom-orange' >Address :-</span> {post && post.address}
       </div>
       <div className='p-3 max-w-2xl text-justify mx-auto w-full post-content'>
-        Age:-{post && post.age}
+      <span className='font-bold text-custom-orange'>Age :-</span>{post && post.age}
       </div>
       <div className='p-3 max-w-2xl text-justify mx-auto w-full post-content'>
-        Education:-{post && post.education}
+      <span className='font-bold text-custom-orange'>Education :-</span>{post && post.education}
       </div>
       <div className='p-3 max-w-2xl text-justify mx-auto w-full post-content'>
-        Mobile Number:-{post && post.pNumber}
+      <span className='font-bold text-custom-orange'>Mobile Number :-</span>{post && post.pNumber}
       </div>
       
 

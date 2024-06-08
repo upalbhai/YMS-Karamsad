@@ -206,11 +206,11 @@ const uploadImage = async () => {
         <TextInput type='text' id='username' placeholder='Username' defaultValue={currentUser.username}  onChange={handleChange}/>
         <TextInput type='email' id='email' placeholder='Email' defaultValue={currentUser.email}  onChange={handleChange}/>
         <TextInput type='password' id='password' placeholder='password' onChange={handleChange}/>
-        <Button type='submit' className='dark:bg-custom-orange' disabled={loading} >Update</Button>
+        <Button type='submit' className=' bg-custom-nav text-black border-black dark:bg-custom-orange' disabled={loading} >Update</Button>
         {
             currentUser.isAdmin && (
                 <Link to='/create-post'>
-                <Button type='button' className='w-full bg-custom-btn' >
+                <Button type='button' className='w-full dark:bg-teal-600 bg-custom-btn' >
                     Create A User
                 </Button>
                 </Link>
