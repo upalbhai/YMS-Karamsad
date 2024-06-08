@@ -83,7 +83,7 @@ export default function UpdateUser() {
                 return toast.error(data.message);
             }
             if(res.ok){
-                toast.success('Post Updated Successfully');
+                toast.success('Yuvak Updated Successfully');
                 navigate(`/post/${data.slug}`);
             }
         } catch (error) {

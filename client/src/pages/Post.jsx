@@ -76,16 +76,16 @@ export default function PostPage() {
         <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
       </div>
       <div className='p-3 max-w-2xl text-justify mx-auto w-full post-content'>
-        {post && post.address}
+        Address:-{post && post.address}
       </div>
       <div className='p-3 max-w-2xl text-justify mx-auto w-full post-content'>
-        {post && post.age}
+        Age:-{post && post.age}
       </div>
       <div className='p-3 max-w-2xl text-justify mx-auto w-full post-content'>
-        {post && post.education}
+        Education:-{post && post.education}
       </div>
       <div className='p-3 max-w-2xl text-justify mx-auto w-full post-content'>
-        {post && post.pNumber}
+        Mobile Number:-{post && post.pNumber}
       </div>
       
 
