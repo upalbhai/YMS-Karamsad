@@ -5,12 +5,13 @@ export const createPost = async (req, res, next) => {
   if (!req.user.isAdmin) {
     return next(errorHandler(403, 'You are not allowed to create a post'));
   }
-  if (!req.body.name || !req.body.address || !req.body.pNumber || !req.body.age) {
+  if (!req.body.name || !req.body.address || !req.body.bloodGroup || !req.body.pNumber || !req.body.age) {
     return next(errorHandler(400, 'Please provide all required fields'));
   }
   if (!/^\d{10}$/.test(req.body.pNumber)) {
-    return next(errorHandler(403,'Lasan Enter phone number of 10 digits'));
+    return next(errorHandler(403,'Please Enter phone number of 10 digits'));
   }
+
   
   const slug = req.body.name
     .split(' ')
@@ -99,6 +100,13 @@ export const updatePost = async(req,res,next)=>{
   if(!req.user.isAdmin ||  req.user._id !== req.user.userId){
     return next(errorHandler(403,'You are not allow to edit this post'))
   }
+  if (!/^\d{10}$/.test(req.body.pNumber)) {
+    return next(errorHandler(403,'Please Enter phone number of 10 digits'));
+  }
+  // if (!/^\d{10}$/.test(req.body.parentnumber)) {
+  //   return next(errorHandler(403, 'Please enter a parent phone number of 10 digits'));
+  // }
+  
   try {
     const updatedPost = await Post.findByIdAndUpdate(req.params.postId,
       {
@@ -108,6 +116,8 @@ export const updatePost = async(req,res,next)=>{
           image:req.body.image,
           pNumer:req.body.pNumber,
           education:req.body.education,
+          parentNumber:req.body.parentNumber,
+          bloodGroup:req.body.bloodGroup,
         },
       },{new:true}
     )

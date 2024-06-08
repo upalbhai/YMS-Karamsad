@@ -120,7 +120,7 @@ export default function DashboardComp() {
         
         <div className='flex flex-col w-full md:w-auto shadow-md p-2 rounded-md dark:bg-gray-800'>
           <div className='flex justify-between  p-3 text-sm font-semibold'>
-            <h1 className='text-center p-2'>Recent posts</h1>
+            <h1 className='text-center p-2'>Recent registered Yuvaks</h1>
             <Button className='bg-custom-black dark:bg-custom-orange'>
               <Link to={'/dashboard?tab=posts'}>See all</Link>
             </Button>

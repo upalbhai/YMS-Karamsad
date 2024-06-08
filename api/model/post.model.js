@@ -13,6 +13,20 @@ const postSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    bloodGroup:{
+        type:String,
+        required:true,
+    },
+    parentNumber: {
+        type: String,
+        required: true,
+        validate: {
+          validator: function(v) {
+            return /^\d{10}$/.test(v);
+          },
+          message: props => `${props.value} is not a valid 10-digit phone number!`
+        }
+      },
     image:{
         type:String,
         default:'https://images.app.goo.gl/qXNeL39HFsaHAvgMA'

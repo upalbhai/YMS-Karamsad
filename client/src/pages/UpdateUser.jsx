@@ -94,11 +94,13 @@ export default function UpdateUser() {
     <div className='p-3 max-w-3xl mx-auto min-h-screen'>
       <h1 className='text-center my-7 text-3xl font-semibold' >Update A Post</h1>
       <form onSubmit={handleSubmint} className='flex flex-col gap-4'>
-        <div className="flex flex-col gap-4 sm:flex-row justify-between">
-        <TextInput type='text' placeholder='Name' required id='name' className='flex-1' onChange={(e) =>setFormData({ ...formData, name: e.target.value })} value={formData.name}  />
-        <Textarea type='text' placeholder='address' required id='address' className='flex-1' onChange={(e) =>setFormData({ ...formData, address: e.target.value })} value={formData.address}  />
-        <TextInput type='number' placeholder='Phone Number' required id='pNumber' className='flex-1' onChange={(e) =>setFormData({ ...formData, pNumber: e.target.value })} value={formData.pNumber}  />
-        <TextInput type='text' placeholder='Education' required id='education' className='flex-1' onChange={(e) =>setFormData({ ...formData, education: e.target.value })} value={formData.education}  />
+        <div className="flex-row gap-4 p-5 justify-between">
+        <TextInput type='text ' placeholder='Name' required id='name' className='flex-1 my-5' onChange={(e) =>setFormData({ ...formData, name: e.target.value })} value={formData.name}  />
+        <Textarea type='text' placeholder='address' required id='address' className='flex-1 my-5' onChange={(e) =>setFormData({ ...formData, address: e.target.value })} value={formData.address}  />
+        <TextInput type='number' placeholder='Phone Number' required id='pNumber' className='flex-1 my-5' onChange={(e) =>setFormData({ ...formData, pNumber: e.target.value })} value={formData.pNumber}  />
+        <TextInput type='text' placeholder='Education' required id='education' className='flex-1 my-5' onChange={(e) =>setFormData({ ...formData, education: e.target.value })} value={formData.education}  />
+        <TextInput type='text' placeholder='Bloodgroup' required id='bloodGroup' className='flex-1 my-5' onChange={(e) =>setFormData({ ...formData, bloodGroup: e.target.value })} value={formData.bloodGroup}  />
+        <TextInput type='text' placeholder="Parent's Number" required id='parentNumber' className='flex-1 my-5' onChange={(e) =>setFormData({ ...formData, parentNumber: e.target.value })} value={formData.parentNumber}  />
         </div>
         <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3 ">
             <FileInput type='file' accept='image/*'  onChange={(e)=>setFile(e.target.files[0])} />

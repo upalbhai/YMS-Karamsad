@@ -12,6 +12,7 @@ import UpdateUser from './pages/UpdateUser';
 import Home from './pages/Home';
 import Search from './pages/Search';
 import PostPage from './pages/Post';
+import ScrollToTop from './components/ScrollToTop';
 
 
 
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    {/* <ScrollToTop /> */}
+    <ScrollToTop />
     {/* <Header /> */}
     <Header />
       <Routes>

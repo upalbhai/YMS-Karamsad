@@ -87,6 +87,12 @@ export default function PostPage() {
       <div className='p-3 max-w-2xl text-justify mx-auto w-full post-content'>
       <span className='font-bold text-custom-orange'>Mobile Number :-</span>{post && post.pNumber}
       </div>
+      <div className='p-3 max-w-2xl text-justify mx-auto w-full post-content'>
+      <span className='font-bold text-custom-orange'>Blood Group :-</span>{post && post.bloodGroup}
+      </div>
+      <div className='p-3 max-w-2xl text-justify mx-auto w-full post-content'>
+      <span className='font-bold text-custom-orange'>Parent's Number :-</span>{post && post.parentNumber}
+      </div>
       
 
 
