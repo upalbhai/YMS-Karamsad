@@ -34,7 +34,7 @@ export default function Search() {
       setLoading(true);
       const searchQuery = urlParams.toString();
       try {
-        const res = await fetch(`/api/post/getposts`);
+        const res = await fetch(`/api/post/getposts?${searchQuery}`);
         if (res.ok) {
           const data = await res.json();
           setPosts(data.posts);
@@ -98,7 +98,7 @@ export default function Search() {
         <form className='flex flex-col gap-8' onSubmit={handleSubmit}>
           <div className='flex items-center gap-2'>
             <label className='whitespace-nowrap font-semibold'>
-              Search Term:
+              Search Name:
             </label>
             <TextInput
               placeholder='Search...'
