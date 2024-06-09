@@ -85,7 +85,7 @@ export default function CreateUser() {
                     <TextInput type='text' placeholder='Blood Group' required id='bloodGroup' className='flex-1 my-3' onChange={(e) => setFormData({ ...formData, bloodGroup: e.target.value })} />
                 </div>
                 <div className='flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3'>
-                    <FileInput type='file' accept='image/*' onChange={(e) => setFile(e.target.files[0])} />
+                    <FileInput type='file' accept='image/*' onChange={(e) => setFile(e.target.files[0])} capture="camera"  />
                     <Button type='button' className='dark:bg-custom-orange' size='sm' outline onClick={handleUploadImage} disabled={imageUploadProgress}>
                         {imageUploadProgress ? (
                             <div className='w-16 h-16'>
