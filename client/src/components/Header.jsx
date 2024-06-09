@@ -103,13 +103,13 @@ export default function Header() {
           </Link>
         )}
             
-            <Navbar.Toggle/>
+            {/* <Navbar.Toggle/> */}
         </div>
-        <Navbar.Collapse className='text-lg '>
-            {/* <Navbar.Link active={path==='/'} as={'div'} ><Link to='/' className='lg:text-lg '>Home</Link></Navbar.Link>
-            <Navbar.Link active={path==='/about'} as={'div'} ><Link to='/about' className='lg:text-lg'>About</Link></Navbar.Link> */}
-            {/* <Navbar.Link active={path==='/projects'} as={'div'} ><Link to='/projects' className='lg:text-lg'>Projects</Link></Navbar.Link> */}
-        </Navbar.Collapse>
+        {/* <Navbar.Collapse className='text-lg '>
+            <Navbar.Link active={path==='/'} as={'div'} ><Link to='/' className='lg:text-lg '>Home</Link></Navbar.Link>
+            <Navbar.Link active={path==='/about'} as={'div'} ><Link to='/about' className='lg:text-lg'>About</Link></Navbar.Link>
+            <Navbar.Link active={path==='/projects'} as={'div'} ><Link to='/projects' className='lg:text-lg'>Projects</Link></Navbar.Link>
+        </Navbar.Collapse> */}
     </Navbar>
   )
 }
