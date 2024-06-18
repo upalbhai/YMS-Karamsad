@@ -38,13 +38,22 @@ export default function CreateAccount() {
         toast.success("Sign Up Successfully")
       }
     } catch (error) {
-      setErrorMessage(error.message)
+      setErrorMessage(error.message);
+      toast.error(error.message)
       // setLoading(false)
     }
   }
 
   return (
-    <div className='min-h-screen mt-20' >
+    <div className='min-h-screen mt-20 p-3' >
+      <div className='sm:w-[60%] m-auto rounded-lg border border-teal-500 border-3 bg-red-200 text-red-950 font-bold text-center mb-7 p-3'><span>Note:- Create an account with the same Email which you have entered in the form</span>
+      <br />
+      <span>Otherwise, you will not be able to login</span>
+      </div>
+      <div className='sm:w-[60%] m-auto rounded-lg border border-teal-500 border-3 bg-red-200 text-red-950 font-bold text-center mb-7 p-3'><span>જે Email-ID આગળ ના ફોર્મ માં ભરીયું, એજ ID થી SIGN UP કરીશું</span>
+      <br />
+      <span></span>
+      </div>
       <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
         <div className="flex-1">
         <Link to='/'className='self-center font-bold dark:text-white text-4xl' >

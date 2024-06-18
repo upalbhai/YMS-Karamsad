@@ -25,19 +25,21 @@ function App() {
     <Header />
       <Routes>
         <Route path='/sign-in' element={<Login/>} />
-        <Route path='/' element={<Home/>}  />
+        
         <Route path='/sign-up' element={<CreateAccount/>} />
-
+        <Route path='/create-user' element={<CreateUser />} />
 
         <Route element={<PrivateRoute />}>
+        <Route path='/' element={<Home/>}  />
           <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/update-post/:postId' element={<UpdateUser />} />
+          <Route path='/search' element={<Search />} />
+        <Route path='/yuvak/:postId' element={<PostPage />} />
         </Route>
         <Route element={<OnlyAdminPrivateRoute />}>
           <Route path='/create-post' element={<CreateUser />} />
-          <Route path='/update-post/:postId' element={<UpdateUser />} />
         </Route>
-        <Route path='/search' element={<Search />} />
-        <Route path='/post/:postSlug' element={<PostPage />} />
+        
       </Routes> 
       
       <Toaster />

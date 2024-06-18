@@ -93,7 +93,7 @@ export default function DashPost() {
                      {new Date(post.updatedAt).toLocaleDateString()}
                    </Table.Cell>
                    <Table.Cell>
-                     <Link to={`/post/${post.slug}`}>
+                     <Link to={`/post/${post._slug}`}>
                        <img className='h-10 w-20 object-cover bg-gray-500' src={post.image} alt={post.name} />
                      </Link>
                    </Table.Cell>

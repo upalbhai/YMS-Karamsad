@@ -7,11 +7,11 @@ import { signInStart, signInFailure, signInSuccess } from '../redux/user/userSli
 import Oath from '../components/Oath';
 
 export default function Login() {
-  const {error: errorMessage } = useSelector((state) => state.user);
+  const { error: errorMessage } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const [loading,setLoading] = useState(false)
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: '', password: '' });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -21,27 +21,35 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      return dispatch(signInFailure('Please fill all the fields'));
+      dispatch(signInFailure('Please fill all the fields'));
+      return;
     }
+
+    setLoading(true);
+    dispatch(signInStart());
+
     try {
-      dispatch(signInStart());
       const res = await fetch('/api/auth/signin', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
+
       const data = await res.json();
+
       if (!res.ok) {
-        setLoading(true)
         dispatch(signInFailure(data.message || 'Sign-in failed'));
+        setLoading(false);
         return;
       }
+
       dispatch(signInSuccess(data));
-      setLoading(false)
+      setLoading(false);
       navigate('/');
       toast.success('Sign In Successfully');
     } catch (error) {
       dispatch(signInFailure(error.message));
+      setLoading(false);
     }
   };
 
@@ -55,11 +63,23 @@ export default function Login() {
           <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
             <div>
               <Label value='Your Email' />
-              <TextInput onChange={handleChange} type='email' placeholder='Email' id='email' required />
+              <TextInput 
+                onChange={handleChange} 
+                type='email' 
+                placeholder='Email' 
+                id='email' 
+                required 
+              />
             </div>
             <div>
               <Label value='Your Password' />
-              <TextInput onChange={handleChange} type='password' placeholder='Password' id='password' required />
+              <TextInput 
+                onChange={handleChange} 
+                type='password' 
+                placeholder='Password' 
+                id='password' 
+                required 
+              />
             </div>
             <Button className='bg-custom-orange dark:bg-teal-500' type='submit' disabled={loading}>
               {loading ? (

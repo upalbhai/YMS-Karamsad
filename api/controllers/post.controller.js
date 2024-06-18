@@ -1,35 +1,42 @@
 // import Comment from "../model/comment.model.js";
 import Post from "../model/post.model.js";
+import User from "../model/user.model.js";
 import { errorHandler } from "../utils/errorHandler.js"
 export const createPost = async (req, res, next) => {
-  if (!req.user.isAdmin) {
-    return next(errorHandler(403, 'You are not allowed to create a post'));
-  }
-  if (!req.body.name || !req.body.address || !req.body.bloodGroup || !req.body.pNumber || !req.body.age) {
+  // Validate required fields
+  const { name, address, bloodGroup, pNumber, age } = req.body;
+  
+  if (!name || !address || !bloodGroup || !pNumber || !age) {
     return next(errorHandler(400, 'Please provide all required fields'));
   }
-  if (!/^\d{10}$/.test(req.body.pNumber)) {
-    return next(errorHandler(403,'Please Enter phone number of 10 digits'));
-  }
 
-  
-  const slug = req.body.name
+  // // Validate phone number format
+  // if (!/^\d{10}$/.test(pNumber)) {
+  //   return next(errorHandler(403, 'Please enter a phone number of 10 digits'));
+  // }
+
+  // Create slug from the name
+  const slug = name
     .split(' ')
     .join('-')
     .toLowerCase()
     .replace(/[^a-zA-Z0-9-]/g, '');
+
+  // Create a new post object
   const newPost = new Post({
     ...req.body,
     slug,
-    userId: req.user.id,
   });
+
   try {
+    // Save the post to the database
     const savedPost = await newPost.save();
     res.status(201).json(savedPost);
   } catch (error) {
     next(error);
   }
 };
+
 
 
 //get posts// getPosts
@@ -95,34 +102,58 @@ export const deletePost = async (req, res, next) => {
   }
 };
 
-
-export const updatePost = async(req,res,next)=>{
-  if(!req.user.isAdmin ||  req.user._id !== req.user.userId){
-    return next(errorHandler(403,'You are not allow to edit this post'))
-  }
-  if (!/^\d{10}$/.test(req.body.pNumber)) {
-    return next(errorHandler(403,'Please Enter phone number of 10 digits'));
-  }
-  // if (!/^\d{10}$/.test(req.body.parentnumber)) {
-  //   return next(errorHandler(403, 'Please enter a parent phone number of 10 digits'));
-  // }
-  
+export const updatePost = async (req, res, next) => {
+  const post_id = req.params.postId;
+  const user_id = req.params.userId;
+console.log(post_id)
+console.log(user_id)
   try {
-    const updatedPost = await Post.findByIdAndUpdate(req.params.postId,
+    const post = await Post.findById(post_id);
+    if (!post) {
+      return next(errorHandler(404, 'Post not found'));
+    }
+
+    // Fetch the user who is trying to update the post
+    const user = await User.findById(user_id);
+    if (!user) {
+      return next(errorHandler(404, 'User not found'));
+    }
+
+    // Check if the user is not an admin and their yuvakId does not match the post's _id
+    if (!req.user.isAdmin && user.yuvakId.toString() !== post._id.toString()) {
+      return next(errorHandler(403, 'You are not allowed to edit this post'));
+    }
+    // Validate phone number format
+    if (!/^\d{12}$/.test(req.body.pNumber)) {
+      return next(errorHandler(403, 'Please enter a phone number of 10 digits'));
+    }
+    if (!/^\d{12}$/.test(req.body.parentNumber)) {
+      return next(errorHandler(403, 'Please enter parent phone number of 10 digits'));
+    }
+
+    // Update the post
+    const updatedPost = await Post.findByIdAndUpdate(
+      post_id,
       {
-        $set:{
-          name:req.body.name,
-          address:req.body.address,
-          image:req.body.image,
-          pNumer:req.body.pNumber,
-          education:req.body.education,
-          parentNumber:req.body.parentNumber,
-          bloodGroup:req.body.bloodGroup,
+        $set: {
+          name: req.body.name,
+          address: req.body.address,
+          image: req.body.image,
+          pNumber: req.body.pNumber,
+          education: req.body.education,
+          parentNumber: req.body.parentNumber,
+          bloodGroup: req.body.bloodGroup,
+          country:req.body.country,
+          state:req.body.state,
+          birthDate:req.body.birthDate,
         },
-      },{new:true}
-    )
-    res.status(200).json(updatedPost)
+      },
+      { new: true }
+    );
+
+    // Return the updated post as JSON response
+    res.status(200).json(updatedPost);
   } catch (error) {
-    next(error)
+    next(error);
   }
-}
+};

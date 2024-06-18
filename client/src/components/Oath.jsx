@@ -31,9 +31,12 @@ export default function Oath() {
                 toast.success('Sign in with google successfully')
                 navigate('/')
             }
+            else{
+                toast.error('Hey please enter correct email id which you have entered in previous form')
+            }
         } catch (error) {
             console.log(error);
-            toast.error(error)
+            toast.error(error.message)
         }
     }     
   return (

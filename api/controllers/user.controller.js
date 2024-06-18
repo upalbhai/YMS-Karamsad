@@ -1,5 +1,5 @@
 // import Comment from "../model/comment.model.js"
-// import Post from "../model/post.model.js"
+import Post from "../model/post.model.js"
 import User from "../model/user.model.js"
 import { errorHandler } from "../utils/errorHandler.js"
 import bcrypt from 'bcryptjs'
@@ -77,6 +77,8 @@ export const updateuser = async (req, res, next) => {
         return next(errorHandler(404, 'User not found'));
       }
   
+      await Post.deleteMany({ _id: user.yuvakId });
+
       // Delete the user
       await User.findByIdAndDelete(userId);
   
@@ -163,8 +165,9 @@ export const updateuser = async (req, res, next) => {
         return next(errorHandler(403, 'You are not allowed to delete an admin'));
       }
   
+      await Post.deleteMany({ _id: deletingUser.yuvakId });
       // Proceed with deletion if checks pass
-      await User.findByIdAndDelete(req.params.userId);
+      await User.findByIdAndDelete(deletingUser);
     //   await Comment.deleteMany({userId:req.params.userId});
   
       // Delete posts created by the user
