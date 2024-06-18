@@ -23,7 +23,7 @@ const postSchema = new mongoose.Schema({
       },
     image:{
         type:String,
-        default:'https://images.app.goo.gl/qXNeL39HFsaHAvgMA'
+        required:true,
     },
     yuvakId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     slug: {
