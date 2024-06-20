@@ -1,5 +1,5 @@
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
-import { Select, TextInput, FileInput, Button, Textarea } from 'flowbite-react';
+import { Select, TextInput, FileInput, Button, Textarea, Label } from 'flowbite-react';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { app } from '../firebase';
@@ -164,6 +164,7 @@ export default function CreateUser() {
                         ))}
                     </Select>
                     <TextInput type='email' placeholder='Enter a valid Email' required id='email' className='flex-1 my-3' onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                    <label htmlFor="birthDate">Enter Your Birthdate</label>
                     <TextInput type='date' placeholder='Enter a valid date' required id='birthDate' className='flex-1 my-3' onChange={(e) => setFormData({ ...formData, birthDate: e.target.value })} />
                 </div>
                 <div>

@@ -13,6 +13,7 @@ import Home from './pages/Home';
 import Search from './pages/Search';
 import PostPage from './pages/Post';
 import ScrollToTop from './components/ScrollToTop';
+import GuestRoute from './components/GuestRoute';
 
 
 
@@ -27,7 +28,7 @@ function App() {
         <Route path='/sign-in' element={<Login/>} />
         
         <Route path='/sign-up' element={<CreateAccount/>} />
-        <Route path='/create-user' element={<CreateUser />} />
+        <Route path="/create-post" element={<GuestRoute element={<CreateUser />} />} />
 
         <Route element={<PrivateRoute />}>
         <Route path='/' element={<Home/>}  />
