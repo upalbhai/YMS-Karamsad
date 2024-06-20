@@ -157,3 +157,17 @@ console.log(user_id)
     next(error);
   }
 };
+
+
+export const getPost = async (req, res, next) => {
+  const { postId } = req.params;
+  try {
+    const getPost = await Post.findById(postId);
+    if (!getPost) {
+      return next(errorHandler(404, 'Post not found'));
+    }
+    res.status(200).json(getPost);
+  } catch (error) {
+    next(error);
+  }
+};

@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import PostCard from '../components/PostCard';
 import { useSelector } from 'react-redux';
 import { FaPlus } from 'react-icons/fa';
+import { Contact } from '../components/ContactYuvak';
 export default function PostPage() {
   const { currentUser } = useSelector((state) => state.user);
   const { postId } = useParams();
@@ -136,6 +137,7 @@ export default function PostPage() {
       }
                        
                      </Link>
+                     <Contact post={post} />
 
     </main>
   );
