@@ -124,7 +124,7 @@ export default function UpdateUser() {
                 return toast.error(data.message);
             }
             if (res.ok) {
-                toast.success('Post updated successfully');
+                toast.success('Yuvak updated successfully');
                 navigate(`/yuvak/${data._id}`);
             }
         } catch (error) {
@@ -242,13 +242,13 @@ export default function UpdateUser() {
                  
                 </div>
                 <div>
-    <label htmlFor="birthDate">Birth Date</label>
+    <label htmlFor="birthDate">Birth Date:-</label>
     <input
         type="date"
         id="birthDate"
         value={formData.birthDate || ''}
         onChange={(e) => setFormData({ ...formData, birthDate: e.target.value })}
-        className="form-input"
+        className="form-input text-black "
         required
     />
 </div>
@@ -266,7 +266,7 @@ export default function UpdateUser() {
                         )}
                     </Button>
                 </div>
-                {formData.image && <img src={formData.image} alt='image' className='w-full h-72 object-cover' />}
+                {formData.image && <img src={formData.image} alt='image' className='w-full max-h-[600px] object-cover' />}
                 <Button type='submit' className='bg-custom-btn'>Edit</Button>
             </form>
         </div>

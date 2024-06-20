@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div>
       <div className=' flex flex-col gap-6 p-28 px-6 max-w-6xl mx-auto'>
-      <h1 className='text-custom-orange dark:text-slate-200 text-3xl font-bold lg:text-6xl' >Welcome to YMS</h1>
+      <h1 className='text-custom-orange dark:text-slate-200 text-3xl font-bold lg:text-6xl sm:justify-center' >Welcome to Karamsad Yuva Management System</h1>
 
         <Link
           to='/search'

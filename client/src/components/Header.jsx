@@ -54,7 +54,7 @@ export default function Header() {
         <Link to='/'className='self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white' >
 {/* <img src={logo} className='w-auto h-3 sm:h-5 dark:hidden' /> 
 <img src={logo_white} className='w-auto h-3 sm:h-5 hidden dark:inline' />  */}
-      YMS
+      KYMS
        </Link>
         <form onSubmit={handleSubmit}>
         <TextInput
